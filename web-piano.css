@@ -1,30 +1,39 @@
 .web-piano {
     width: 100%;
+    background-color: #f4f4f4;
+    padding: 5% 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: end;
 }
+
 .web-piano-frame {
     width: 100%;
     overflow: hidden;
 }
+
 .piano-console {
     width: 100%;
     overflow: hidden;
     position: relative;
     margin: 2% auto;
 }
+
 .slider-container {
     width: 100%;
-
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 .slider-container div {
     flex: 1;
     margin: auto 1%;
 }
+
 .slider-container input {
     width: 100%;
-    padding: 10px;
 }
 
 .slider-container input[type='range'] {
@@ -57,8 +66,9 @@
     background-color: gray;
     display: flex;
     justify-content: center;
-    aspect-ratio: 12 / 1; /* 가로:세로 비율을 4:3으로 설정 */
+    aspect-ratio: 12/1; /* 가로:세로 비율을 4:3으로 설정 */
 }
+
 .white-key {
     position: relative;
     z-index: 100;
@@ -70,16 +80,16 @@
     border-radius: 0% 0% 5% 5%;
     margin-top: 0.1%;
     margin-bottom: 0.2%;
-
-    box-shadow: 1px 3px 0.5px rgb(181 181 181);
+    box-shadow: 1px 3px 0.5px rgb(181, 181, 181);
 }
 
 .web-piano-view-black-key {
     background-color: gray;
     display: flex;
     width: 100%; /* 예시로 50%의 너비를 가지도록 설정 */
-    aspect-ratio: 12 / 1; /* 가로:세로 비율을 4:3으로 설정 */
+    aspect-ratio: 12/1; /* 가로:세로 비율을 4:3으로 설정 */
 }
+
 .black-key {
     position: absolute;
     z-index: 50;
@@ -91,8 +101,7 @@
     border-radius: 0% 0% 7% 7%;
     margin-top: 0.1%;
     margin-bottom: 0.2%;
-
-    box-shadow: 1px 3px 0.5px rgb(181 181 181);
+    box-shadow: 1px 3px 0.5px rgb(181, 181, 181);
 }
 
 div[id^='Bb'].black-key {
@@ -102,13 +111,30 @@ div[id^='Bb'].black-key {
 div[id^='Db'].black-key {
     left: -45%;
 }
+
 div[id^='Eb'].black-key {
     left: -25%;
 }
+
 div[id^='Gb'].black-key {
     left: -55%;
 }
 
 div[id^='Ab'].black-key {
     left: -40%;
+}
+
+#full_screen_button {
+    margin-bottom: 30px;
+    margin-right: 10px;
+    width: 120px;
+    height: 50px;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: #787878;
+    color: white;
+    border: none;
+    width: 120px;
+    border-radius: 5%;
+    /*    border: 1px solid black; */
 }

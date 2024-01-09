@@ -178,9 +178,30 @@ function playSound(id, valocity) {
 }
 
 function onMIDISuccess(midiAccess) {
-    midiAccess.onstatechange = function (event) {
+    function midiInputStateChanged(event) {
         console.log(event.port.name, event.port.manufacturer, event.port.state)
+        if (event.port.state === 'connected') {
+            const inputs = midiAccess.inputs.values()
+            for (
+                let input = inputs.next();
+                input && !input.done;
+                input = inputs.next()
+            ) {
+                input.value.onmidimessage = function (message) {
+                    const [command, note, velocity] = message.data
+                    if (command === 144) {
+                        // console.log(`Note: ${note}, Velocity: ${velocity}`)
+                        playSound(pianoKey[note - 21], velocity)
+                        changeColorDuringAudio(pianoKey[note - 21])
+                    }
+                }
+            }
+        } else if (event.port.state === 'disconnected') {
+            // 연결이 끊긴 MIDI 장치의 처리 로직
+        }
     }
+
+    midiAccess.onstatechange = midiInputStateChanged
 
     const inputs = midiAccess.inputs.values()
     for (
@@ -191,7 +212,6 @@ function onMIDISuccess(midiAccess) {
         input.value.onmidimessage = function (message) {
             const [command, note, velocity] = message.data
             if (command === 144) {
-                // MIDI 신호를 나타내는 명령 코드 (144는 Note On)
                 // console.log(`Note: ${note}, Velocity: ${velocity}`)
                 playSound(pianoKey[note - 21], velocity)
                 changeColorDuringAudio(pianoKey[note - 21])
@@ -241,3 +261,31 @@ sizeSlider.addEventListener('input', function (event) {
     positionSlider.value = 50
     // console.log(pianoWidth)
 })
+const web_piano = document.querySelector('.web-piano')
+var screen_state = false
+
+function full_screen() {
+    if (!screen_state) {
+        screen_state = true
+        if (web_piano.requestFullscreen) {
+            web_piano.requestFullscreen()
+        } else if (web_piano.webkitRequestFullscreen) {
+            /* Safari, Chrome */
+            web_piano.webkitRequestFullscreen()
+        } else if (web_piano.msRequestFullscreen) {
+            /* IE11 */
+            web_piano.msRequestFullscreen()
+        }
+    } else {
+        screen_state = false
+        if (document.exitFullscreen) {
+            document.exitFullscreen()
+        } else if (web_piano.webkitExitFullscreen) {
+            /* Safari, Chrome */
+            document.webkitExitFullscreen()
+        } else if (web_piano.msExitFullscreen) {
+            /* IE11 */
+            document.msExitFullscreen()
+        }
+    }
+}
