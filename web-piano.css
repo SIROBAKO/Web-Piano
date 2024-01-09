@@ -1,0 +1,114 @@
+.web-piano {
+    width: 100%;
+}
+.web-piano-frame {
+    width: 100%;
+    overflow: hidden;
+}
+.piano-console {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    margin: 2% auto;
+}
+.slider-container {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.slider-container div {
+    flex: 1;
+    margin: auto 1%;
+}
+.slider-container input {
+    width: 100%;
+    padding: 10px;
+}
+
+.slider-container input[type='range'] {
+    -webkit-appearance: none; /* 웹킷 기반 브라우저에서 기본 스타일 제거 */
+    width: 100%; /* 슬라이더 전체 너비 */
+    height: 20px; /* 슬라이더 높이 */
+    border-radius: 3px; /* 모서리를 둥글게 처리 */
+    background-color: #ddd; /* 슬라이더의 배경색 */
+    outline: none; /* 포커스 시 외곽선 제거 */
+    margin: 5px 0; /* 위아래 여백 설정 */
+}
+
+/* 슬라이더의 스타일 */
+.slider-container input[type='range']::-webkit-slider-thumb {
+    -webkit-appearance: none; /* 웹킷 기반 브라우저에서 기본 스타일 제거 */
+    width: 50px; /* 슬라이더 버튼 너비 */
+    height: 20px; /* 슬라이더 버튼 높이 */
+    border-radius: 3px; /* 원형 모양으로 만들기 위해 모든 모서리를 50%로 설정 */
+    background-color: #000; /* 슬라이더 버튼 배경색 */
+    cursor: pointer; /* 커서 모양 설정 */
+}
+
+.piano-console p {
+    width: 100%;
+    text-align: left;
+}
+
+.web-piano-view {
+    width: 200vw;
+    background-color: gray;
+    display: flex;
+    justify-content: center;
+    aspect-ratio: 12 / 1; /* 가로:세로 비율을 4:3으로 설정 */
+}
+.white-key {
+    position: relative;
+    z-index: 100;
+    background-color: white;
+    width: 1.82%;
+    height: 100%;
+    border: 1px solid black;
+    border-collapse: separate;
+    border-radius: 0% 0% 5% 5%;
+    margin-top: 0.1%;
+    margin-bottom: 0.2%;
+
+    box-shadow: 1px 3px 0.5px rgb(181 181 181);
+}
+
+.web-piano-view-black-key {
+    background-color: gray;
+    display: flex;
+    width: 100%; /* 예시로 50%의 너비를 가지도록 설정 */
+    aspect-ratio: 12 / 1; /* 가로:세로 비율을 4:3으로 설정 */
+}
+.black-key {
+    position: absolute;
+    z-index: 50;
+    background-color: black;
+    width: 70%;
+    height: 68%;
+    border: 1px solid black;
+    border-collapse: separate;
+    border-radius: 0% 0% 7% 7%;
+    margin-top: 0.1%;
+    margin-bottom: 0.2%;
+
+    box-shadow: 1px 3px 0.5px rgb(181 181 181);
+}
+
+div[id^='Bb'].black-key {
+    left: -25%;
+}
+
+div[id^='Db'].black-key {
+    left: -45%;
+}
+div[id^='Eb'].black-key {
+    left: -25%;
+}
+div[id^='Gb'].black-key {
+    left: -55%;
+}
+
+div[id^='Ab'].black-key {
+    left: -40%;
+}

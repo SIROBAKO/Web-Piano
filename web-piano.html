@@ -1,0 +1,108 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="web-piano.css" />
+    </head>
+    <body>
+        <div class="web-piano">
+            <div class="web-piano-frame">
+                <div class="web-piano-view" id="pianoView"></div>
+            </div>
+            <div class="piano-console">
+                <div class="slider-container">
+                    <div>
+                        <p>위치 조절</p>
+                        <input
+                            type="range"
+                            min="0"
+                            max="100"
+                            value="50"
+                            id="positionSlider"
+                        />
+                    </div>
+                    <div>
+                        <p>사이즈 조절</p>
+                        <input
+                            type="range"
+                            min="1"
+                            max="3"
+                            step="0.001"
+                            value="2"
+                            id="sizeSlider"
+                        />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            // ================== 건반 생성 ======================
+            const pianoView_white = document.querySelector('.web-piano-view')
+
+            // 건반 요소 추가
+            function createWhiteKey(id) {
+                const whiteKey = document.createElement('div')
+                whiteKey.classList.add('white-key')
+                whiteKey.id = id
+                pianoView_white.appendChild(whiteKey)
+
+                if (
+                    id.includes('B') ||
+                    id.includes('D') ||
+                    id.includes('E') ||
+                    id.includes('G') ||
+                    (id.includes('A') && id !== 'A0')
+                ) {
+                    var keyPlace = document.getElementById(id)
+                    createBlackKey(blackKeys[key_index], keyPlace)
+                    key_index++
+                }
+            }
+
+            // 검은 건반 요소 추가
+            function createBlackKey(id, keyPlace) {
+                const blackKey = document.createElement('div')
+                blackKey.classList.add('black-key')
+                blackKey.id = id
+                keyPlace.appendChild(blackKey)
+            }
+
+            // 검은 건반 배열 생성
+            var keys = ['Db', 'Eb', 'Gb', 'Ab', 'Bb']
+            var octaves = [0, 1, 2, 3, 4, 5, 6, 7]
+            var blackKeys = []
+            octaves.forEach((octave) => {
+                keys.forEach((key) => {
+                    const id = key + octave
+                    // 조건 추가: 키 값이 0인 경우 'A'와 'B'만 생성하고, 8인 경우 'C'만 생성합니다.
+                    if (key === 'Bb' && octave === 0) {
+                        blackKeys.push(id)
+                    } else if (octave > 0 && octave < 8) {
+                        blackKeys.push(id)
+                    }
+                })
+            })
+
+            // A0부터 C8까지 모든 하얀 건반을 생성합니다.
+            var keys = ['C', 'D', 'E', 'F', 'G', 'A', 'B']
+            var octaves = [0, 1, 2, 3, 4, 5, 6, 7, 8]
+            var key_index = 0
+            octaves.forEach((octave) => {
+                keys.forEach((key) => {
+                    const id = key + octave
+                    // 조건 추가: 키 값이 0인 경우 'A'와 'B'만 생성하고, 8인 경우 'C'만 생성합니다.
+                    if ((key === 'A' || key === 'B') && octave === 0) {
+                        createWhiteKey(id)
+                    } else if (key === 'C' && octave === 8) {
+                        createWhiteKey(id)
+                    } else if (octave > 0 && octave < 8) {
+                        createWhiteKey(id)
+                    }
+
+                    // 검은 건반 추가
+                })
+            })
+        </script>
+
+        <script type="text/javascript" src="web-piano.js"></script>
+    </body>
+</html>
