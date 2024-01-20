@@ -9,7 +9,7 @@
 
 <p>추후에 사용가능한 웹 사이트 추가 예정 </p>
 
-<a href="">사용해보기</a>
+<a href="https://sirobako.co.kr/detail/165">사용해보기</a>
 
 <br/>
 
@@ -23,7 +23,7 @@
 
 <p>In the future, additional websites that are usable will be added.</p>
 
-<a href="">move site</a>
+<a href="https://sirobako.co.kr/detail/165">move site</a>
 <br/>
 
 
