@@ -1,0 +1,181 @@
+<link rel="stylesheet" href="/Css/MiniProject/web-piano.css" />
+
+<div class="web-piano">
+    <input
+        type="button"
+        value="전체화면"
+        onclick="full_screen()"
+        id="full_screen_button"
+    />
+    <div class="web-piano-frame">
+        <div class="web-piano-view" id="pianoView">
+            <div class="white-key" id="A0"></div>
+            <div class="white-key" id="B0">
+                <div class="black-key" id="Bb0"></div>
+            </div>
+            <div class="white-key" id="C1"></div>
+            <div class="white-key" id="D1">
+                <div class="black-key" id="Db1"></div>
+            </div>
+            <div class="white-key" id="E1">
+                <div class="black-key" id="Eb1"></div>
+            </div>
+            <div class="white-key" id="F1"></div>
+            <div class="white-key" id="G1">
+                <div class="black-key" id="Gb1"></div>
+            </div>
+            <div class="white-key" id="A1">
+                <div class="black-key" id="Ab1"></div>
+            </div>
+            <div class="white-key" id="B1">
+                <div class="black-key" id="Bb1"></div>
+            </div>
+            <div class="white-key" id="C2"></div>
+            <div class="white-key" id="D2">
+                <div class="black-key" id="Db2"></div>
+            </div>
+            <div class="white-key" id="E2">
+                <div class="black-key" id="Eb2"></div>
+            </div>
+            <div class="white-key" id="F2"></div>
+            <div class="white-key" id="G2">
+                <div class="black-key" id="Gb2"></div>
+            </div>
+            <div class="white-key" id="A2">
+                <div class="black-key" id="Ab2"></div>
+            </div>
+            <div class="white-key" id="B2">
+                <div class="black-key" id="Bb2"></div>
+            </div>
+            <div class="white-key" id="C3"></div>
+            <div class="white-key" id="D3">
+                <div class="black-key" id="Db3"></div>
+            </div>
+            <div class="white-key" id="E3">
+                <div class="black-key" id="Eb3"></div>
+            </div>
+            <div class="white-key" id="F3"></div>
+            <div class="white-key" id="G3">
+                <div class="black-key" id="Gb3"></div>
+            </div>
+            <div class="white-key" id="A3">
+                <div class="black-key" id="Ab3"></div>
+            </div>
+            <div class="white-key" id="B3">
+                <div class="black-key" id="Bb3"></div>
+            </div>
+            <div class="white-key" id="C4"></div>
+            <div class="white-key" id="D4">
+                <div class="black-key" id="Db4"></div>
+            </div>
+            <div class="white-key" id="E4">
+                <div class="black-key" id="Eb4"></div>
+            </div>
+            <div class="white-key" id="F4"></div>
+            <div class="white-key" id="G4">
+                <div class="black-key" id="Gb4"></div>
+            </div>
+            <div class="white-key" id="A4">
+                <div class="black-key" id="Ab4"></div>
+            </div>
+            <div class="white-key" id="B4">
+                <div class="black-key" id="Bb4"></div>
+            </div>
+            <div class="white-key" id="C5"></div>
+            <div class="white-key" id="D5">
+                <div class="black-key" id="Db5"></div>
+            </div>
+            <div class="white-key" id="E5">
+                <div class="black-key" id="Eb5"></div>
+            </div>
+            <div
+                class="white-key"
+                id="F5"
+                style="
+                    transition: transform 0.1s ease-in-out 0s;
+                    transform: translateY(0px);
+                "
+            ></div>
+            <div class="white-key" id="G5">
+                <div class="black-key" id="Gb5"></div>
+            </div>
+            <div class="white-key" id="A5">
+                <div class="black-key" id="Ab5"></div>
+            </div>
+            <div class="white-key" id="B5">
+                <div class="black-key" id="Bb5"></div>
+            </div>
+            <div class="white-key" id="C6"></div>
+            <div class="white-key" id="D6">
+                <div class="black-key" id="Db6"></div>
+            </div>
+            <div class="white-key" id="E6">
+                <div class="black-key" id="Eb6"></div>
+            </div>
+            <div class="white-key" id="F6"></div>
+            <div class="white-key" id="G6">
+                <div class="black-key" id="Gb6"></div>
+            </div>
+            <div class="white-key" id="A6">
+                <div class="black-key" id="Ab6"></div>
+            </div>
+            <div class="white-key" id="B6">
+                <div class="black-key" id="Bb6"></div>
+            </div>
+            <div class="white-key" id="C7"></div>
+            <div class="white-key" id="D7">
+                <div class="black-key" id="Db7"></div>
+            </div>
+            <div class="white-key" id="E7">
+                <div class="black-key" id="Eb7"></div>
+            </div>
+            <div class="white-key" id="F7"></div>
+            <div class="white-key" id="G7">
+                <div class="black-key" id="Gb7"></div>
+            </div>
+            <div class="white-key" id="A7">
+                <div class="black-key" id="Ab7"></div>
+            </div>
+            <div class="white-key" id="B7">
+                <div class="black-key" id="Bb7"></div>
+            </div>
+            <div class="white-key" id="C8"></div>
+        </div>
+    </div>
+    <div class="piano-console">
+        <div class="slider-container">
+            <div>
+                <p>위치 조절</p>
+                <input
+                    type="range"
+                    min="0"
+                    max="100"
+                    value="50"
+                    id="positionSlider"
+                />
+            </div>
+            <div>
+                <p>사이즈 조절</p>
+                <input
+                    type="range"
+                    min="1"
+                    max="3"
+                    step="0.001"
+                    value="2"
+                    id="sizeSlider"
+                />
+            </div>
+        </div>
+    </div>
+    <div class="message-box">
+        <p class="receiver-user">(시스템 관리자)</p>
+        <p class="receiver-message"><span>이곳에서 채팅이 가능합니다.</span></p>
+    </div>
+    <div id="chatting-box">
+        <input type="text" id="message" />
+        <label for="message"
+            ><i class="icon-paper-plane" onclick="sendMessage()"></i
+        ></label>
+    </div>
+</div>
+<script type="text/javascript" src="/JS/MiniProject/web-piano.js"></script>
